@@ -256,7 +256,9 @@ class Parser(object):
                     if (self.with_punct) or (not punct(self.language, pos_str)):
                         UAS += 1 if pred_h == gold_h else 0
                         all_tokens += 1
+        print UAS,all_tokens
         UAS /= all_tokens
+        
         return UAS, dependencies
 
 

@@ -191,7 +191,7 @@ class ParserModel(Model):
             train_op: The Op for training.
         """
         ### YOUR CODE HERE
-        train_op = tf.train.AdamOptimizer(1e-4).minimize(loss)
+        train_op = tf.train.AdamOptimizer(Config.lr).minimize(loss)
         ### END YOUR CODE
         return train_op
 
@@ -237,6 +237,7 @@ def main(debug=False):
     print 80 * "="
     config = Config()
     parser, embeddings, train_examples, dev_set, test_set = load_and_preprocess_data(debug)
+    print len(train_examples),len(dev_set),len(test_set)
     if not os.path.exists('./data/weights/'):
         os.makedirs('./data/weights/')
 
